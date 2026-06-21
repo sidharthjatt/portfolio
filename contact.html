@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact — Sidharth Choudhary</title>
+<meta name="description" content="Get in touch with Sidharth Choudhary — open to data science, ML, and AI engineering roles." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-scene="waves">
+
+<canvas id="bg-canvas" class="bg-canvas"></canvas>
+<div class="bg-veil"></div>
+
+<nav id="nav">
+  <a href="index.html" class="brand"><span class="dot"></span>Sidharth Choudhary</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="skills.html">Skills</a>
+  </div>
+  <a href="contact.html" class="nav-cta active">Get in touch</a>
+  <div class="burger" id="burger"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html">Projects</a><a href="skills.html">Skills</a><a href="contact.html">Contact</a>
+</div>
+
+<main class="content">
+  <div class="wrap page-top">
+    <div class="sec-label reveal">Contact</div>
+    <div class="contact-grid">
+      <div class="contact-left reveal d1">
+        <h2>Let's build something that <em>ships</em>.</h2>
+        <p>
+          I'm open to roles in data science, ML and AI engineering. If you're hiring, or just want
+          to talk shop, my inbox is open.
+        </p>
+        <div class="contact-list">
+          <a href="mailto:jattsidh786@gmail.com"><span class="k">Email</span> jattsidh786@gmail.com</a>
+          <a href="https://github.com/sidharthjatt" target="_blank" rel="noopener"><span class="k">GitHub</span> github.com/sidharthjatt</a>
+          <a href="https://www.linkedin.com/in/sidharthjatt" target="_blank" rel="noopener"><span class="k">LinkedIn</span> linkedin.com/in/sidharthjatt</a>
+          <a href="#"><span class="k">Location</span> Jodhpur, India</a>
+        </div>
+      </div>
+
+      <div class="form reveal d2">
+        <!-- This form opens the user's email app pre-filled. No server needed. -->
+        <label for="cname">Your name</label>
+        <input id="cname" type="text" placeholder="Jane Doe" />
+        <label for="cemail">Your email</label>
+        <input id="cemail" type="email" placeholder="jane@company.com" />
+        <label for="cmsg">Message</label>
+        <textarea id="cmsg" placeholder="Tell me a bit about the role or what you're building..."></textarea>
+        <button class="btn btn-primary" id="sendBtn" type="button">Send message</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-wrap">
+    <div>Sidharth Choudhary — Jodhpur, India</div>
+    <div class="footer-social">
+      <a href="https://github.com/sidharthjatt" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/sidharthjatt" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:jattsidh786@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="assets/app.js"></script>
+<script>
+  // Contact form -> opens email app pre-filled (no backend needed, works on GitHub Pages)
+  document.getElementById('sendBtn').addEventListener('click',function(){
+    var n=document.getElementById('cname').value.trim();
+    var e=document.getElementById('cemail').value.trim();
+    var m=document.getElementById('cmsg').value.trim();
+    var subject=encodeURIComponent('Portfolio enquiry'+(n?(' from '+n):''));
+    var body=encodeURIComponent((m||'')+'\n\n— '+(n||'')+(e?(' ('+e+')'):''));
+    window.location.href='mailto:jattsidh786@gmail.com?subject='+subject+'&body='+body;
+  });
+</script>
+</body>
+</html>

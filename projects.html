@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Projects — Sidharth Choudhary</title>
+<meta name="description" content="Selected projects by Sidharth Choudhary — a self-auditing ML decision agent, analytics pipelines, and quantitative systems." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-scene="grid">
+
+<canvas id="bg-canvas" class="bg-canvas"></canvas>
+<div class="bg-veil"></div>
+
+<nav id="nav">
+  <a href="index.html" class="brand"><span class="dot"></span>Sidharth Choudhary</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="skills.html">Skills</a>
+  </div>
+  <a href="contact.html" class="nav-cta">Get in touch</a>
+  <div class="burger" id="burger"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html">Projects</a><a href="skills.html">Skills</a><a href="contact.html">Contact</a>
+</div>
+
+<main class="content">
+  <div class="wrap page-top">
+    <div class="sec-label reveal">Flagship project</div>
+    <h1 class="sec-title reveal">The work I'd want to be <em>judged</em> on.</h1>
+
+    <div class="flagship reveal d1">
+      <span class="tag">Agentic AI · Self-auditing</span>
+      <h3>Self-Auditing ML Decision Agent</h3>
+      <p>
+        Most ML models give you a prediction and stop there. This one doesn't. It pairs a
+        gradient-boosted decision model with an agentic audit layer that flags its own
+        uncertainty and verifies its reasoning against external tools — instead of trusting a
+        single pass.
+      </p>
+      <p>
+        The audit layer is built on the Agent-as-a-Judge approach: rather than a plain
+        LLM-as-a-judge that grades in one shot, the agent uses tool-use and real-world verification
+        to catch the bias and shallow reasoning that single-pass judges miss. That self-checking
+        behaviour is the part I'm most proud of, and it's what sets this apart from typical
+        LLM-as-a-judge work.
+      </p>
+      <div class="stack">
+        <span class="chip">XGBoost</span><span class="chip">SHAP</span><span class="chip">LangGraph</span>
+        <span class="chip">Agent-as-a-Judge</span><span class="chip">Tool-use verification</span><span class="chip">FastAPI</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap" style="padding-top:0">
+    <div class="sec-label reveal">Selected work</div>
+    <h2 class="sec-title reveal">Built end to end.</h2>
+    <div class="proj-grid">
+      <div class="proj-card reveal">
+        <div class="num">01</div>
+        <h4>Real-Time Analytics &amp; Insight Engine</h4>
+        <p>A deployment-grade pipeline on a million+ retail transactions — cleaning, analysis, and an
+          automated insight layer, served live with Streamlit and FastAPI.</p>
+        <div class="links"><a href="https://github.com/sidharthjatt" target="_blank" rel="noopener">GitHub →</a></div>
+      </div>
+      <div class="proj-card reveal d1">
+        <div class="num">02</div>
+        <h4>SQL Analytics Dashboard</h4>
+        <p>An industry-grade dashboard on a real relational dataset — advanced PostgreSQL at its core:
+          window functions, CTEs, and the query patterns analysts actually use.</p>
+        <div class="links"><a href="https://github.com/sidharthjatt" target="_blank" rel="noopener">GitHub →</a></div>
+      </div>
+      <div class="proj-card reveal d2">
+        <div class="num">03</div>
+        <h4>Comparative Backprop for NMT</h4>
+        <p>An optimizer study (SGD, Adam, RMSProp, Adagrad) on an English–Hindi translation model
+          built with Seq2Seq, LSTM, and attention. Best BLEU of 18.22 with RMSProp.</p>
+        <div class="links"><a href="https://github.com/sidharthjatt" target="_blank" rel="noopener">GitHub →</a></div>
+      </div>
+      <div class="proj-card reveal d3">
+        <div class="num">04</div>
+        <h4>Quant Volatility &amp; Risk Engine</h4>
+        <p>A volatility and risk system for Nifty 50 using the GARCH family — regime detection, stress
+          testing, and regime-aware allocation. Where I learned to respect real data.</p>
+        <div class="links"><a href="https://github.com/sidharthjatt" target="_blank" rel="noopener">GitHub →</a></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-wrap">
+    <div>Sidharth Choudhary — Jodhpur, India</div>
+    <div class="footer-social">
+      <a href="https://github.com/sidharthjatt" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/sidharthjatt" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:jattsidh786@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

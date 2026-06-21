@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About — Sidharth Choudhary</title>
+<meta name="description" content="About Sidharth Choudhary — final-year dual-degree student at IIT Jodhpur, building machine learning and agentic AI systems." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-scene="particles">
+
+<canvas id="bg-canvas" class="bg-canvas"></canvas>
+<div class="bg-veil"></div>
+
+<nav id="nav">
+  <a href="index.html" class="brand"><span class="dot"></span>Sidharth Choudhary</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html" class="active">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="skills.html">Skills</a>
+  </div>
+  <a href="contact.html" class="nav-cta">Get in touch</a>
+  <div class="burger" id="burger"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html">Projects</a><a href="skills.html">Skills</a><a href="contact.html">Contact</a>
+</div>
+
+<main class="content">
+  <div class="wrap page-top">
+    <div class="sec-label reveal">About</div>
+    <h1 class="sec-title reveal">The person behind the work.</h1>
+
+    <div class="about-grid">
+      <div class="reveal d1">
+        <p class="lead-text">
+          I'm Sidharth Choudhary, a final-year dual-degree student in Data and Computational
+          Science at <span class="accent">IIT Jodhpur</span>, specializing in mathematics. I build
+          machine learning and AI systems that go the full distance — from the math on paper to
+          code that runs in production.
+        </p>
+        <div class="about-block">
+          <h3>What I care about</h3>
+          <p>
+            Most student work dies in a notebook. Mine doesn't. I care about the whole path —
+            clean data, models that earn their complexity, and systems that hold up when someone
+            other than me uses them.
+          </p>
+          <p>
+            My focus right now is the newer wave of agentic AI: systems that don't just predict,
+            but reason about a decision and can account for it. I'd rather understand <em class="accent">why</em>
+            a model works than just call <span style="font-family:'JetBrains Mono',monospace;color:var(--mint)">.fit()</span>.
+          </p>
+        </div>
+        <div class="about-block">
+          <h3>Where I'm headed</h3>
+          <p>
+            I'm building toward roles in data science, ML engineering, and AI engineering — the kind
+            of work where the math depth and the production thinking both matter. My background in
+            quantitative modeling taught me to respect real data; agentic AI is where I want to push next.
+          </p>
+        </div>
+      </div>
+
+      <div class="reveal d2">
+        <div class="about-photo">
+          <!-- EDIT: replace src with your photo file, e.g. assets/photo.jpg -->
+          <img src="assets/photo.jpg" alt="Sidharth Choudhary"
+               onerror="this.style.display='none';this.parentNode.style.minHeight='320px';this.parentNode.style.display='flex';this.parentNode.style.alignItems='center';this.parentNode.style.justifyContent='center';this.parentNode.innerHTML='<span style=&quot;font-family:JetBrains Mono,monospace;color:var(--muted);font-size:.85rem&quot;>Add your photo → assets/photo.jpg</span>';">
+        </div>
+        <div class="about-card">
+          <div class="row"><span>Role</span><span>ML &amp; AI Engineer</span></div>
+          <div class="row"><span>Base</span><span>IIT Jodhpur</span></div>
+          <div class="row"><span>Degree</span><span>MSc–MTech, DCS</span></div>
+          <div class="row"><span>Focus</span><span>ML · Agentic AI</span></div>
+          <div class="row"><span>Open to</span><span>DS / MLE / AI roles</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-wrap">
+    <div>Sidharth Choudhary — Jodhpur, India</div>
+    <div class="footer-social">
+      <a href="https://github.com/sidharthjatt" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/sidharthjatt" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:jattsidh786@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
