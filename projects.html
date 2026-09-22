@@ -3,8 +3,16 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Projects — Sidharth Choudhary</title>
-<meta name="description" content="Selected projects by Sidharth Choudhary — Honest Mistake, an agent that audits a credit-default model for target leakage, plus analytics pipelines and quantitative systems." />
+<title>Projects · Sidharth Choudhary</title>
+<meta name="description" content="Reasonable Doubt, Honest Mistake, Predictive Engine and RegretZero: what each one does, what it found, and where it falls short." />
+<link rel="canonical" href="https://www.sidharthjatt.com/projects.html" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Projects · Sidharth Choudhary" />
+<meta property="og:description" content="Reasonable Doubt, Honest Mistake, Predictive Engine and RegretZero: what each one does, what it found, and where it falls short." />
+<meta property="og:url" content="https://www.sidharthjatt.com/projects.html" />
+<meta property="og:image" content="https://www.sidharthjatt.com/assets/photo.jpg" />
+<meta name="theme-color" content="#0A0E1A" />
+<link rel="icon" type="image/png" href="assets/favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -19,87 +27,105 @@
   <a href="index.html" class="brand"><span class="dot"></span>Sidharth Choudhary</a>
   <div class="nav-links">
     <a href="index.html">Home</a>
-    <a href="about.html">About</a>
     <a href="projects.html" class="active">Projects</a>
-    <a href="skills.html">Skills</a>
+    <a href="about.html">About</a>
+    <a href="skills.html">Toolkit</a>
   </div>
   <a href="contact.html" class="nav-cta">Get in touch</a>
-  <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html">Projects</a><a href="skills.html">Skills</a><a href="contact.html">Contact</a>
+  <a href="index.html">Home</a><a href="projects.html">Projects</a><a href="about.html">About</a><a href="skills.html">Toolkit</a><a href="contact.html">Contact</a>
 </div>
 
 <main class="content">
   <div class="wrap page-top">
-    <div class="sec-label reveal">Flagship project</div>
-    <h1 class="sec-title reveal">The work I'd want to be <em>judged</em> on.</h1>
-
-    <div class="flagship reveal d1">
-      <span class="tag">Agentic AI · Leakage audit</span>
-      <h3>Honest Mistake</h3>
-      <p>
-        A credit-default model built without leakage. Every column that only exists after a
-        loan's outcome is known was stripped out, and the XGBoost model lands at ROC-AUC 0.7296
-        on a held-out future year.
-      </p>
-      <p>
-        A second layer hands an agent eight read-only tools and asks it to audit that model,
-        without telling it what to look for. It is a plain ReAct loop on the Anthropic API, with
-        no framework, and its dictionary search runs on pgvector. Twelve live runs are recorded
-        and replayable turn by turn. When a leaking column was planted, the agent caught it in
-        every run.
-      </p>
-      <div class="stack">
-        <span class="chip">XGBoost</span><span class="chip">SHAP</span><span class="chip">ReAct loop</span>
-        <span class="chip">Anthropic API</span><span class="chip">pgvector</span><span class="chip">Tool use</span>
-      </div>
-      <div class="links" style="display:flex;gap:14px;font-family:'JetBrains Mono',monospace;font-size:.8rem;margin-top:18px">
-        <a href="https://github.com/sidharthjatt/honest-mistake" target="_blank" rel="noopener" style="color:var(--mint)">GitHub →</a>
-        <a href="https://sidharthjatt.github.io/honest-mistake/" target="_blank" rel="noopener" style="color:var(--mint)">Live benchmark →</a>
-      </div>
+    <div class="sec-label reveal">Projects</div>
+    <h1 class="sec-title reveal">Four projects. The <em>caveats</em> are included.</h1>
+    <p class="lead-text reveal d1">
+      Each one below is public, and every number on this page comes from its repository.
+      Where something doesn't work, I've said so, because that's usually the first thing
+      a good interviewer asks about anyway.
+    </p>
+    <div class="case-index reveal d2" role="navigation" aria-label="Projects on this page">
+      <a href="#reasonable-doubt"><span>01</span>Reasonable Doubt</a>
+      <a href="#honest-mistake"><span>02</span>Honest Mistake</a>
+      <a href="#predictive-engine"><span>03</span>Predictive Engine</a>
+      <a href="#regretzero"><span>04</span>RegretZero</a>
     </div>
   </div>
 
-  <div class="wrap" style="padding-top:0">
-    <div class="sec-label reveal">Selected work</div>
-    <h2 class="sec-title reveal">Built end to end.</h2>
-    <div class="proj-grid">
-      <div class="proj-card reveal">
-        <div class="num">01</div>
-        <h4>Real-Time Analytics &amp; Insight Engine</h4>
-        <p>A deployment-grade pipeline on a million+ retail transactions — cleaning, analysis, and an
-          automated insight layer, served live with Streamlit and FastAPI.</p>
-        <div class="links"><a href="https://github.com/sidharthjatt" target="_blank" rel="noopener">GitHub →</a></div>
+  <div class="wrap cases" style="padding-top:0">
+    <article class="case reveal" id="reasonable-doubt">
+      <header class="case-head">
+        <div class="case-idx">01 / 04</div>
+        <div>
+          <h2>Reasonable Doubt</h2>
+          <p class="case-tag">A contract-clause classifier that tells you when it isn't sure</p>
+        </div>
+        <div class="case-status"><span class="live-dot"></span>Live</div>
+      </header>
+      <div class="figs"><div class="fig"><div class="fig-n">0.8091</div><div class="fig-l">macro-F1 on 3,000 held-out clauses</div></div><div class="fig"><div class="fig-n">$0.00088</div><div class="fig-l">per 1,000 clauses, on a CPU</div></div><div class="fig"><div class="fig-n">496×</div><div class="fig-l">what Sonnet 5 zero-shot costs, for 0.6148</div></div></div>
+      <div class="case-grid"><div class="case-block"><h4>The question</h4><p>LEDGAR has about 80,000 provisions from SEC filings, labelled into 100 clause types. Can a small model do this job as well as a frontier LLM, for a fraction of the price, and know when it's guessing?</p></div><div class="case-block"><h4>What I built</h4><p>I planned a three-tier cascade: a fine-tuned encoder, a QLoRA-tuned Qwen2.5-1.5B, and Claude for the hard rows. I measured each tier before trusting it. The small decoder lost to the encoder, and sending low-confidence rows to Sonnet 5 moved macro-F1 by +0.0008, with a confidence interval across zero. Both were dropped. What ships is one DeBERTa-v3 model in ONNX behind FastAPI on Cloud Run, with a needs_review flag on low-margin answers.</p></div><div class="case-block"><h4>What surprised me</h4><p>The INT8 build of the same weights scored 0.000166 macro-F1 on CPUs without AVX-512 VNNI. That's chance level, and it raised no error. Cloud Run doesn't let you pick the CPU, so the service now classifies 200 fixed rows at startup and refuses to answer until they pass.</p></div><div class="case-block"><h4>Where it falls short</h4><p>The flag doesn't catch text that isn't a contract at all. I sent 20 non-contract paragraphs through it and 10 came back confident. A data-access policy got labelled Records at 99.9%. That's written up in the report, not hidden.</p></div></div>
+      <div class="case-foot">
+        <div class="stack"><span class="chip">DeBERTa-v3</span><span class="chip">QLoRA</span><span class="chip">ONNX Runtime</span><span class="chip">FastAPI</span><span class="chip">Docker</span><span class="chip">Cloud Run</span><span class="chip">Anthropic API</span><span class="chip">pytest · CI</span></div>
+        <div class="case-links"><a href="https://reasonable-doubt-111680840326.asia-south1.run.app" target="_blank" rel="noopener">Live demo <span aria-hidden="true">↗</span></a><a href="https://github.com/sidharthjatt/reasonable-doubt" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a><a href="https://huggingface.co/sidharthjatt/reasonable-doubt-deberta-ledgar" target="_blank" rel="noopener">Model on Hugging Face <span aria-hidden="true">↗</span></a></div>
       </div>
-      <div class="proj-card reveal d1">
-        <div class="num">02</div>
-        <h4>SQL Analytics Dashboard</h4>
-        <p>An industry-grade dashboard on a real relational dataset — advanced PostgreSQL at its core:
-          window functions, CTEs, and the query patterns analysts actually use.</p>
-        <div class="links"><a href="https://github.com/sidharthjatt" target="_blank" rel="noopener">GitHub →</a></div>
+    </article>
+    <article class="case reveal d1" id="honest-mistake">
+      <header class="case-head">
+        <div class="case-idx">02 / 04</div>
+        <div>
+          <h2>Honest Mistake</h2>
+          <p class="case-tag">A credit model built without leakage, and an agent that tries to catch it cheating</p>
+        </div>
+        <div class="case-status"><span class="live-dot"></span>Live</div>
+      </header>
+      <div class="figs"><div class="fig"><div class="fig-n">0.7296</div><div class="fig-l">ROC-AUC on a future year it never saw</div></div><div class="fig"><div class="fig-n">41</div><div class="fig-l">post-outcome columns found and removed</div></div><div class="fig"><div class="fig-n">12</div><div class="fig-l">recorded agent runs, replayable turn by turn</div></div></div>
+      <div class="case-grid"><div class="case-block"><h4>The question</h4><p>Public models on the Lending Club data regularly report AUCs above 0.90. Most of them train on columns that only exist after a loan's outcome is known. What does an honest model score, and can an agent spot the leak without being told where to look?</p></div><div class="case-block"><h4>What I built</h4><p>Layer 1 is XGBoost on 1,061,042 loans from 2014–2017, trained on three years and tested once on the fourth. Finding all 41 leaking columns took three passes: name patterns, reading the data dictionary, and asking why one column was almost always empty. Layer 2 is a plain ReAct loop on the Anthropic API, no framework, with eight read-only tools and pgvector search over the data dictionary. Layer 3 tried runtime tool generation and ended with one generated tool, admitted with its limitations written down.</p></div><div class="case-block"><h4>What surprised me</h4><p>I planted a leaking column as a canary. The agent caught it in every configuration, even with its per-vintage view withheld. What changed between configurations was the number of false alarms, not whether the leak was found.</p></div><div class="case-block"><h4>Where it falls short</h4><p>The planted column's description gives it away. So the canary shows a floor, not a ceiling: nothing here proves the agent would catch a leak with no descriptive hint. The repo says that in as many words.</p></div></div>
+      <div class="case-foot">
+        <div class="stack"><span class="chip">XGBoost</span><span class="chip">SHAP</span><span class="chip">Optuna</span><span class="chip">ReAct loop</span><span class="chip">Anthropic API</span><span class="chip">pgvector</span><span class="chip">sentence-transformers</span><span class="chip">Postgres</span></div>
+        <div class="case-links"><a href="https://sidharthjatt.github.io/honest-mistake/" target="_blank" rel="noopener">Live benchmark <span aria-hidden="true">↗</span></a><a href="https://sidharthjatt.github.io/honest-mistake/scan.html" target="_blank" rel="noopener">Run the audit yourself <span aria-hidden="true">↗</span></a><a href="https://github.com/sidharthjatt/honest-mistake" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a></div>
       </div>
-      <div class="proj-card reveal d2">
-        <div class="num">03</div>
-        <h4>Comparative Backprop for NMT</h4>
-        <p>An optimizer study (SGD, Adam, RMSProp, Adagrad) on an English–Hindi translation model
-          built with Seq2Seq, LSTM, and attention. Best BLEU of 18.22 with RMSProp.</p>
-        <div class="links"><a href="https://github.com/sidharthjatt" target="_blank" rel="noopener">GitHub →</a></div>
+    </article>
+    <article class="case reveal d1" id="predictive-engine">
+      <header class="case-head">
+        <div class="case-idx">03 / 04</div>
+        <div>
+          <h2>Predictive Engine</h2>
+          <p class="case-tag">A stock-ranking strategy for Indian markets, and the record of everything tested against it</p>
+        </div>
+        <div class="case-status">M.Tech thesis</div>
+      </header>
+      <div class="figs"><div class="fig"><div class="fig-n">8</div><div class="fig-l">NSE universes, Nifty 50 to Smallcap 250</div></div><div class="fig"><div class="fig-n">17</div><div class="fig-l">price and volume features, 10-seed LightGBM</div></div><div class="fig"><div class="fig-n">1,836</div><div class="fig-l">trading days per backtest, Jan 2019 to May 2026</div></div></div>
+      <div class="case-grid"><div class="case-block"><h4>The question</h4><p>Can a cross-sectional ranking model pick Indian stocks well enough to survive real brokerage, slippage and tax, and how would I know if it only looked good by accident?</p></div><div class="case-block"><h4>What I built</h4><p>Every 20 trading days a 10-seed LightGBM ensemble ranks the universe, retrained monthly on an expanding window. The top eight are held, sized inverse to volatility, and exposure scales with market breadth. Decisions are made on the close and fill at the next open, with Zerodha's actual delivery charges and 15 bps of slippage. The execution path is ported to NautilusTrader and matches the research engine share for share. Universe, arm and rebalance cadence are each a single switch, and a full run rebuilds from raw data on a clean machine.</p></div><div class="case-block"><h4>What surprised me</h4><p>I specified a portfolio drawdown exit. It fired once, in March 2020, and never let the book back in: 84% of the window sat in cash. The re-entry rule could not be satisfied by construction. Resetting the peak at re-entry fixed that, but whether the rule actually helps is still unmeasured, and the record says so.</p></div><div class="case-block"><h4>Where it falls short</h4><p>Survivorship bias. Each universe is today's index membership taken back to 2019, and point-in-time membership only exists from March 2024. The fix is written and tested; the data to use it isn't available yet.</p></div></div>
+      <div class="case-foot">
+        <div class="stack"><span class="chip">LightGBM</span><span class="chip">pandas · NumPy</span><span class="chip">NautilusTrader</span><span class="chip">Parquet</span><span class="chip">joblib</span><span class="chip">Pre-registration</span></div>
+        <div class="case-links"><a href="https://github.com/sidharthjatt/predictive-engine" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a><a href="https://github.com/sidharthjatt/predictive-engine/blob/main/experiments/EXPERIMENTS.md" target="_blank" rel="noopener">Experiment record <span aria-hidden="true">↗</span></a></div>
       </div>
-      <div class="proj-card reveal d3">
-        <div class="num">04</div>
-        <h4>Quant Volatility &amp; Risk Engine</h4>
-        <p>A volatility and risk system for Nifty 50 using the GARCH family — regime detection, stress
-          testing, and regime-aware allocation. Where I learned to respect real data.</p>
-        <div class="links"><a href="https://github.com/sidharthjatt" target="_blank" rel="noopener">GitHub →</a></div>
+    </article>
+    <article class="case reveal d1" id="regretzero">
+      <header class="case-head">
+        <div class="case-idx">04 / 04</div>
+        <div>
+          <h2>RegretZero</h2>
+          <p class="case-tag">Inventory ordering scored on money lost, not on forecast error</p>
+        </div>
+        <div class="case-status"><span class="live-dot"></span>Live</div>
+      </header>
+      <div class="figs"><div class="fig"><div class="fig-n">£54,631</div><div class="fig-l">less lost over 12 held-out weeks</div></div><div class="fig"><div class="fig-n">12.0%</div><div class="fig-l">saving over ordering the median forecast</div></div><div class="fig"><div class="fig-n">91.7%</div><div class="fig-l">P90 coverage against a 90% target</div></div></div>
+      <div class="case-grid"><div class="case-block"><h4>The question</h4><p>Running out of stock and overstocking don't cost a retailer the same. So why judge the forecast on RMSE, which treats both mistakes as equal?</p></div><div class="case-block"><h4>What I built</h4><p>Two years of transactions from a UK online retailer, 1,067,371 lines, cleaned down to 183,459 product-weeks across 3,218 products. LightGBM predicts five demand quantiles directly, with a strict date split and rolling features shifted so no week sees itself. Each product then orders the quantile at its critical ratio, from 0.333 for cheap items to 0.818 for premium ones. That's the newsvendor rule from operations research.</p></div><div class="case-block"><h4>What the numbers say</h4><p>Ordering this way cost £54,631 less than ordering the median, and all three price tiers came out ahead. Premium gained most, 14.9%, because a missed sale there costs the most.</p></div><div class="case-block"><h4>Where it falls short</h4><p>The dataset has prices but no costs, so margins are assumptions. I set them below typical retail margins on purpose; with full gross margins the saving would be 21.2%. The dashboard puts every assumption on a slider, and the advantage holds until holding cost reaches about 26% of price per week.</p></div></div>
+      <div class="case-foot">
+        <div class="stack"><span class="chip">LightGBM quantile</span><span class="chip">Newsvendor model</span><span class="chip">SciPy</span><span class="chip">Streamlit</span><span class="chip">Plotly</span><span class="chip">pandas</span></div>
+        <div class="case-links"><a href="https://regret-zero.streamlit.app" target="_blank" rel="noopener">Live dashboard <span aria-hidden="true">↗</span></a><a href="https://github.com/sidharthjatt/regret-zero" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a></div>
       </div>
-    </div>
+    </article>
   </div>
 </main>
 
 <footer>
   <div class="footer-wrap">
-    <div>Sidharth Choudhary — Jodhpur, India</div>
+    <div>Sidharth Choudhary · IIT Jodhpur</div>
     <div class="footer-social">
       <a href="https://github.com/sidharthjatt" target="_blank" rel="noopener">GitHub</a>
       <a href="https://www.linkedin.com/in/sidharthjatt" target="_blank" rel="noopener">LinkedIn</a>

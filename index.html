@@ -3,8 +3,16 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sidharth Choudhary — ML &amp; AI Engineer</title>
-<meta name="description" content="Sidharth Choudhary — Machine Learning and AI Engineer at IIT Jodhpur. I build ML systems and agentic AI, end to end, from the math to production." />
+<title>Sidharth Choudhary · AI Builder, IIT Jodhpur</title>
+<meta name="description" content="Sidharth Choudhary, final-year MSc–MTech at IIT Jodhpur. Four public projects: a clause classifier, a leakage-auditing agent, an NSE trading strategy and an inventory optimiser." />
+<link rel="canonical" href="https://www.sidharthjatt.com/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Sidharth Choudhary · AI Builder, IIT Jodhpur" />
+<meta property="og:description" content="Sidharth Choudhary, final-year MSc–MTech at IIT Jodhpur. Four public projects: a clause classifier, a leakage-auditing agent, an NSE trading strategy and an inventory optimiser." />
+<meta property="og:url" content="https://www.sidharthjatt.com/" />
+<meta property="og:image" content="https://www.sidharthjatt.com/assets/photo.jpg" />
+<meta name="theme-color" content="#0A0E1A" />
+<link rel="icon" type="image/png" href="assets/favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -19,32 +27,32 @@
   <a href="index.html" class="brand"><span class="dot"></span>Sidharth Choudhary</a>
   <div class="nav-links">
     <a href="index.html" class="active">Home</a>
-    <a href="about.html">About</a>
     <a href="projects.html">Projects</a>
-    <a href="skills.html">Skills</a>
+    <a href="about.html">About</a>
+    <a href="skills.html">Toolkit</a>
   </div>
   <a href="contact.html" class="nav-cta">Get in touch</a>
-  <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="index.html">Home</a><a href="about.html">About</a><a href="projects.html">Projects</a><a href="skills.html">Skills</a><a href="contact.html">Contact</a>
+  <a href="index.html">Home</a><a href="projects.html">Projects</a><a href="about.html">About</a><a href="skills.html">Toolkit</a><a href="contact.html">Contact</a>
 </div>
 
 <main class="content">
   <header class="hero">
     <div class="hero-inner">
-      <div class="eyebrow intro">Machine Learning &amp; AI Engineer</div>
+      <div class="eyebrow intro">AI Builder · IIT Jodhpur</div>
       <h1>
-        <span class="intro" style="display:block">Turning data</span>
-        <span class="intro" style="display:block">into <em>decisions</em>.</span>
+        <span class="intro" style="display:block">I build AI systems,</span>
+        <span class="intro" style="display:block">then I try to <em>break</em> them.</span>
       </h1>
       <p class="lead intro">
-        I build machine learning and AI systems end to end — from the math underneath
-        to the code that ships. I work across data science, ML engineering, and the newer
-        wave of agentic AI, where models don't just predict, they reason and check themselves.
+        Final-year MSc–MTech in Data and Computational Science at IIT Jodhpur. I work on
+        agents that audit models, models that admit when they're unsure, and a trading
+        strategy I keep testing for the ways it could be fooling me.
       </p>
       <div class="hero-actions intro">
-        <a href="projects.html" class="btn btn-primary">See my work</a>
+        <a href="projects.html" class="btn btn-primary">See the projects</a>
         <a href="contact.html" class="btn btn-ghost">Get in touch</a>
       </div>
     </div>
@@ -53,31 +61,84 @@
 
   <section>
     <div class="wrap">
-      <div class="sec-label reveal">What I do</div>
-      <h2 class="sec-title reveal">Four things I keep coming back to.</h2>
-      <div class="skills-grid">
-        <div class="skill-col reveal">
-          <h5>Machine Learning</h5>
-          <ul><li>End-to-end pipelines</li><li>Tree models &amp; boosting</li><li>Model evaluation</li><li>SHAP &amp; explainability</li></ul>
+      <div class="sec-label reveal">Four projects, four numbers</div>
+      <h2 class="sec-title reveal">The number each one <em>actually</em> earned.</h2>
+      <p class="lead-text reveal d1">
+        A big number is easy to get. These are the ones that were left after I went looking
+        for what was wrong with them.
+      </p>
+
+      <div class="ledger">
+        <a class="ledger-row reveal" href="projects.html#reasonable-doubt">
+          <div class="ledger-fig">0.8091</div>
+          <div class="ledger-body">
+            <div class="ledger-name">Reasonable Doubt <span>macro-F1, contract clauses</span></div>
+            <p>Claude Sonnet 5 scored 0.6148 on the same 3,000 clauses, zero-shot, at 496× the cost.
+              A fine-tuned DeBERTa on a CPU did the job for $0.00088 per thousand.</p>
+          </div>
+          <div class="ledger-go" aria-hidden="true">→</div>
+        </a>
+        <a class="ledger-row reveal d1" href="projects.html#honest-mistake">
+          <div class="ledger-fig">0.7296</div>
+          <div class="ledger-body">
+            <div class="ledger-name">Honest Mistake <span>ROC-AUC, loan default</span></div>
+            <p>Most public models on this data report above 0.90. They read columns written after
+              the loan closed. I removed 41 of them, then built an agent to find that kind of leak on its own.</p>
+          </div>
+          <div class="ledger-go" aria-hidden="true">→</div>
+        </a>
+        <a class="ledger-row reveal d2" href="projects.html#predictive-engine">
+          <div class="ledger-fig">8</div>
+          <div class="ledger-body">
+            <div class="ledger-name">Predictive Engine <span>NSE universes, one switch</span></div>
+            <p>A stock-ranking strategy run from Nifty 50 to Smallcap 250 after brokerage, slippage and
+              capital-gains tax, with every rebalance reconciled against a NautilusTrader port.</p>
+          </div>
+          <div class="ledger-go" aria-hidden="true">→</div>
+        </a>
+        <a class="ledger-row reveal d3" href="projects.html#regretzero">
+          <div class="ledger-fig">12.0%</div>
+          <div class="ledger-body">
+            <div class="ledger-name">RegretZero <span>less money lost on stock</span></div>
+            <p>£54,631 saved over 12 held-out weeks by ordering for the cost of being wrong,
+              not for forecast accuracy. Same forecasts, different decision.</p>
+          </div>
+          <div class="ledger-go" aria-hidden="true">→</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap" style="padding-top:0">
+      <div class="sec-label reveal">How I work</div>
+      <h2 class="sec-title reveal">Three habits I keep across projects.</h2>
+      <div class="habits">
+        <div class="habit reveal">
+          <div class="habit-k">01</div>
+          <h3>Rules before results</h3>
+          <p>The accept rule for an experiment gets written down before it runs. Reasonable Doubt's
+            pre-registration runs past 6,000 lines, and when a rule turns out wrong, the fix goes in
+            as a dated amendment, not an edit.</p>
         </div>
-        <div class="skill-col reveal d1">
-          <h5>Agentic AI</h5>
-          <ul><li>LLM agents</li><li>RAG systems</li><li>Multi-agent flows</li><li>Agent-as-a-Judge</li></ul>
+        <div class="habit reveal d1">
+          <div class="habit-k">02</div>
+          <h3>Failures stay in the record</h3>
+          <p>Two of Reasonable Doubt's three planned tiers were dropped because they lost on
+            measurement. Four pieces of Honest Mistake's third layer were cut and the reasons are
+            in the repo. Predictive Engine keeps every rejected idea next to the one that passed.</p>
         </div>
-        <div class="skill-col reveal d2">
-          <h5>Deep Learning</h5>
-          <ul><li>PyTorch</li><li>CNN · RNN · LSTM</li><li>Transformers</li><li>Embeddings</li></ul>
-        </div>
-        <div class="skill-col reveal d3">
-          <h5>Shipping</h5>
-          <ul><li>FastAPI · Streamlit</li><li>PostgreSQL</li><li>Docker · Git</li><li>Production thinking</li></ul>
+        <div class="habit reveal d2">
+          <div class="habit-k">03</div>
+          <h3>Other people can check it</h3>
+          <p>Each project is public and either live or reproducible from a clean clone.
+            Honest Mistake lets you run the audit yourself with your own API key, and RegretZero's
+            dashboard imports the same module that produced its README numbers.</p>
         </div>
       </div>
-      <div class="stats-grid">
-        <div class="stat reveal"><div class="big" data-count="5">0</div><div class="lbl">Production-grade projects</div></div>
-        <div class="stat reveal d1"><div class="big" data-count="6">0</div><div class="lbl">Volatility models benchmarked</div></div>
-        <div class="stat reveal d2"><div class="big" data-float="18.22">0</div><div class="lbl">Best BLEU · EN–HI NMT</div></div>
-        <div class="stat reveal d3"><div class="big" data-count="4">0</div><div class="lbl">Optimizers compared</div></div>
+      <div class="home-cta reveal">
+        <a href="projects.html" class="btn btn-primary">Read the full write-ups</a>
+        <a href="https://github.com/sidharthjatt" target="_blank" rel="noopener" class="btn btn-ghost">GitHub ↗</a>
       </div>
     </div>
   </section>
@@ -85,7 +146,7 @@
 
 <footer>
   <div class="footer-wrap">
-    <div>Sidharth Choudhary — Jodhpur, India</div>
+    <div>Sidharth Choudhary · IIT Jodhpur</div>
     <div class="footer-social">
       <a href="https://github.com/sidharthjatt" target="_blank" rel="noopener">GitHub</a>
       <a href="https://www.linkedin.com/in/sidharthjatt" target="_blank" rel="noopener">LinkedIn</a>
