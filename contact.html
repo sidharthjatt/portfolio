@@ -56,15 +56,19 @@
         </div>
       </div>
 
-      <form class="form reveal d2" id="contactForm">
+      <form class="form reveal d2" id="contactForm" novalidate>
+        <input type="hidden" name="access_key" value="276eebf7-e758-4b66-9045-e795774b8d3a" />
+        <input type="hidden" name="from_name" value="sidharthjatt.com contact form" />
+        <input type="checkbox" name="botcheck" class="form-hp" tabindex="-1" autocomplete="off" style="display:none" />
         <label for="cname">Your name</label>
-        <input id="cname" type="text" autocomplete="name" placeholder="Your name" />
+        <input id="cname" name="name" type="text" autocomplete="name" placeholder="Your name" />
         <label for="cemail">Your email</label>
-        <input id="cemail" type="email" autocomplete="email" placeholder="you@company.com" />
+        <input id="cemail" name="email" type="email" autocomplete="email" placeholder="you@company.com" />
         <label for="cmsg">Message</label>
-        <textarea id="cmsg" placeholder="What's the role, or what did you find?"></textarea>
-        <button class="btn btn-primary" id="sendBtn" type="submit">Open in my email app</button>
-        <p class="form-note">This opens your email app with the message filled in. Nothing is sent from this page.</p>
+        <textarea id="cmsg" name="message" placeholder="What's the role, or what did you find?"></textarea>
+        <button class="btn btn-primary" id="sendBtn" type="submit">Send message</button>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite" hidden></p>
+        <p class="form-note">Rather use your own email app? Write to <a href="mailto:jattsidh786@gmail.com">jattsidh786@gmail.com</a>.</p>
       </form>
     </div>
   </div>
@@ -84,15 +88,44 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="assets/app.js"></script>
 <script>
-  document.getElementById('contactForm').addEventListener('submit',function(ev){
-    ev.preventDefault();
-    var n=document.getElementById('cname').value.trim();
-    var e=document.getElementById('cemail').value.trim();
-    var m=document.getElementById('cmsg').value.trim();
-    var subject=encodeURIComponent('Hello'+(n?(' from '+n):''));
-    var body=encodeURIComponent((m||'')+'\n\n'+(n||'')+(e?(' ('+e+')'):''));
-    window.location.href='mailto:jattsidh786@gmail.com?subject='+subject+'&body='+body;
-  });
+  (function(){
+    var form=document.getElementById('contactForm');
+    var btn=document.getElementById('sendBtn');
+    var status=document.getElementById('formStatus');
+    var emailInput=document.getElementById('cemail');
+    var fallback='That didn’t go through. Please email me directly at <a href="mailto:jattsidh786@gmail.com">jattsidh786@gmail.com</a>.';
+    function show(kind,html){
+      status.className='form-status'+(kind?' '+kind:'');
+      status.innerHTML=html;
+      status.hidden=false;
+    }
+    form.addEventListener('submit',function(ev){
+      ev.preventDefault();
+      var n=document.getElementById('cname').value.trim();
+      var e=emailInput.value.trim();
+      var m=document.getElementById('cmsg').value.trim();
+      if(!n||!e||!m){ show('','Please fill in your name, email and message.'); return; }
+      if(emailInput.validity.typeMismatch){ show('','That email address doesn’t look right.'); return; }
+      var data=Object.fromEntries(new FormData(form));
+      data.name=n; data.email=e; data.message=m;
+      data.subject='New message from '+n+' via sidharthjatt.com';
+      var label=btn.textContent;
+      btn.disabled=true; btn.textContent='Sending…';
+      status.hidden=true;
+      fetch('https://api.web3forms.com/submit',{
+        method:'POST',
+        headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify(data)
+      })
+        .then(function(r){ return r.json().then(function(j){ return r.ok&&j&&j.success===true; }); })
+        .then(function(ok){
+          if(ok){ form.reset(); show('ok','Sent. Thanks, I’ll reply to the email you gave.'); }
+          else show('',fallback);
+        })
+        .catch(function(){ show('',fallback); })
+        .then(function(){ btn.disabled=false; btn.textContent=label; });
+    });
+  })();
 </script>
 </body>
 </html>

@@ -258,6 +258,13 @@ body{opacity:0;animation:pageIn .6s ease .05s forwards}
 .contact-static{display:flex;align-items:center;gap:12px;padding:14px 0;color:var(--muted)}
 .contact-static span.k{color:var(--mint);width:80px}
 .form-note{font-size:.8rem;color:var(--muted);margin-top:12px;text-align:center}
+.form-note a,.form-status a{color:var(--mint);border-bottom:1px solid var(--mint-dim)}
+.form-note a:hover,.form-status a:hover{color:#7af3e1}
+.form-hp{display:none}
+.form button:disabled{opacity:.6;cursor:wait;transform:none;box-shadow:none}
+.form-status{font-family:'JetBrains Mono',monospace;font-size:.82rem;line-height:1.5;margin-top:16px;padding:12px 14px;border-radius:8px;border:1px solid var(--line);background:var(--ink-2);color:var(--text)}
+.form-status[hidden]{display:none}
+.form-status.ok{border-color:var(--mint-dim);color:var(--mint);background:rgba(94,234,212,.06)}
 button.burger{background:none;border:0;padding:4px}
 
 @media (max-width:860px){
