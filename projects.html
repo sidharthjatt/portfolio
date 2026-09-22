@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Projects — Sidharth Choudhary</title>
-<meta name="description" content="Selected projects by Sidharth Choudhary — a self-auditing ML decision agent, analytics pipelines, and quantitative systems." />
+<meta name="description" content="Selected projects by Sidharth Choudhary — Honest Mistake, an agent that audits a credit-default model for target leakage, plus analytics pipelines and quantitative systems." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -36,24 +36,27 @@
     <h1 class="sec-title reveal">The work I'd want to be <em>judged</em> on.</h1>
 
     <div class="flagship reveal d1">
-      <span class="tag">Agentic AI · Self-auditing</span>
-      <h3>Self-Auditing ML Decision Agent</h3>
+      <span class="tag">Agentic AI · Leakage audit</span>
+      <h3>Honest Mistake</h3>
       <p>
-        Most ML models give you a prediction and stop there. This one doesn't. It pairs a
-        gradient-boosted decision model with an agentic audit layer that flags its own
-        uncertainty and verifies its reasoning against external tools — instead of trusting a
-        single pass.
+        A credit-default model built without leakage. Every column that only exists after a
+        loan's outcome is known was stripped out, and the XGBoost model lands at ROC-AUC 0.7296
+        on a held-out future year.
       </p>
       <p>
-        The audit layer is built on the Agent-as-a-Judge approach: rather than a plain
-        LLM-as-a-judge that grades in one shot, the agent uses tool-use and real-world verification
-        to catch the bias and shallow reasoning that single-pass judges miss. That self-checking
-        behaviour is the part I'm most proud of, and it's what sets this apart from typical
-        LLM-as-a-judge work.
+        A second layer hands an agent eight read-only tools and asks it to audit that model,
+        without telling it what to look for. It is a plain ReAct loop on the Anthropic API, with
+        no framework, and its dictionary search runs on pgvector. Twelve live runs are recorded
+        and replayable turn by turn. When a leaking column was planted, the agent caught it in
+        every run.
       </p>
       <div class="stack">
-        <span class="chip">XGBoost</span><span class="chip">SHAP</span><span class="chip">LangGraph</span>
-        <span class="chip">Agent-as-a-Judge</span><span class="chip">Tool-use verification</span><span class="chip">FastAPI</span>
+        <span class="chip">XGBoost</span><span class="chip">SHAP</span><span class="chip">ReAct loop</span>
+        <span class="chip">Anthropic API</span><span class="chip">pgvector</span><span class="chip">Tool use</span>
+      </div>
+      <div class="links" style="display:flex;gap:14px;font-family:'JetBrains Mono',monospace;font-size:.8rem;margin-top:18px">
+        <a href="https://github.com/sidharthjatt/honest-mistake" target="_blank" rel="noopener" style="color:var(--mint)">GitHub →</a>
+        <a href="https://sidharthjatt.github.io/honest-mistake/" target="_blank" rel="noopener" style="color:var(--mint)">Live benchmark →</a>
       </div>
     </div>
   </div>
